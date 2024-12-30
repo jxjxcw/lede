@@ -8,8 +8,9 @@
 name: OpenWrt-CI
 
 on:
-  schedule:
-    - cron: 0 0 * * *
+  workflow_dispatch:
+  #schedule:
+  #  - cron: 0 20 * * *
 
 permissions:
   contents: read
@@ -49,6 +50,7 @@ jobs:
 
       - name: Generate configuration file
         run: make defconfig
+        
 
       - name: Download packages
         run: make download -j16
